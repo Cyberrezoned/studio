@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { Fingerprint, Wallet, ShieldCheck, History, ArrowRight } from 'lucide-react';
+import { Fingerprint, Wallet, ShieldCheck, History, ArrowRight, UploadCloud, FileText, Folder } from 'lucide-react';
 import { TransactionDialog } from '@/components/transaction-dialog';
 import Link from 'next/link';
 
@@ -21,6 +21,12 @@ const transactions = [
   { type: 'Contract', amount: '-0.01 ETH', to: 'Uniswap' },
 ];
 
+const files = [
+  { name: 'Q1-Report.pdf', size: '1.2 MB' },
+  { name: 'Project-Alpha-Proposal.docx', size: '780 KB' },
+  { name: 'Marketing-Assets.zip', size: '15.4 MB' },
+];
+
 export default function DashboardPage() {
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -28,7 +34,7 @@ export default function DashboardPage() {
       <main className="flex-1 p-4 sm:p-6 md:p-8">
         <div className="mx-auto max-w-6xl">
           <h1 className="text-3xl font-bold tracking-tight mb-8">Dashboard</h1>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             <Card className="flex flex-col">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle>Account Details</CardTitle>
@@ -94,6 +100,35 @@ export default function DashboardPage() {
               </CardContent>
               <CardFooter className="mt-4">
                 <TransactionDialog />
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle>File Storage</CardTitle>
+                <Folder className="h-5 w-5 text-accent" />
+              </CardHeader>
+              <CardContent className="space-y-4">
+                 <div className="space-y-3">
+                  {files.map((file, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <FileText className="h-5 w-5 text-muted-foreground" />
+                        <div>
+                          <p className="font-medium">{file.name}</p>
+                          <p className="text-sm text-muted-foreground">{file.size}</p>
+                        </div>
+                      </div>
+                      <Button variant="ghost" size="sm">Download</Button>
+                    </div>
+                  ))}
+                 </div>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full">
+                  <UploadCloud className="mr-2 h-4 w-4" />
+                  Upload Files
+                </Button>
               </CardFooter>
             </Card>
           </div>

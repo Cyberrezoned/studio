@@ -15,8 +15,8 @@ export default function LandingPage() {
         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
           BlockAuth
         </h1>
-        <p className="mt-4 max-w-md text-lg text-muted-foreground">
-          The next generation of secure, decentralized authentication. Your digital identity, protected by the blockchain.
+        <p className="mt-4 max-w-xl text-lg text-muted-foreground">
+          The next generation of secure, decentralized authentication and cloud storage for your business data files. Your digital identity and data, protected by the blockchain.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Button asChild size="lg" className="group">
