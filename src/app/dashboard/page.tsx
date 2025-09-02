@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { Fingerprint, Wallet, ShieldCheck, History, ArrowRight, UploadCloud, FileText, Folder } from 'lucide-react';
+import { Fingerprint, Wallet, ShieldCheck, History, ArrowRight } from 'lucide-react';
 import { TransactionDialog } from '@/components/transaction-dialog';
 import Link from 'next/link';
 
@@ -19,12 +19,6 @@ const transactions = [
   { type: 'Received', amount: '+0.5 ETH', from: '0x1a...eF' },
   { type: 'Sent', amount: '-0.1 ETH', to: '0x2b...dC' },
   { type: 'Contract', amount: '-0.01 ETH', to: 'Uniswap' },
-];
-
-const files = [
-  { name: 'Q1-Report.pdf', size: '1.2 MB' },
-  { name: 'Project-Alpha-Proposal.docx', size: '780 KB' },
-  { name: 'Marketing-Assets.zip', size: '15.4 MB' },
 ];
 
 export default function DashboardPage() {
@@ -77,7 +71,7 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="md:col-span-2">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle>Recent Activity</CardTitle>
                 <History className="h-5 w-5 text-accent" />
@@ -103,34 +97,6 @@ export default function DashboardPage() {
               </CardFooter>
             </Card>
 
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle>File Storage</CardTitle>
-                <Folder className="h-5 w-5 text-accent" />
-              </CardHeader>
-              <CardContent className="space-y-4">
-                 <div className="space-y-3">
-                  {files.map((file, index) => (
-                    <div key={index} className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <FileText className="h-5 w-5 text-muted-foreground" />
-                        <div>
-                          <p className="font-medium">{file.name}</p>
-                          <p className="text-sm text-muted-foreground">{file.size}</p>
-                        </div>
-                      </div>
-                      <Button variant="ghost" size="sm">Download</Button>
-                    </div>
-                  ))}
-                 </div>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full">
-                  <UploadCloud className="mr-2 h-4 w-4" />
-                  Upload Files
-                </Button>
-              </CardFooter>
-            </Card>
           </div>
         </div>
       </main>

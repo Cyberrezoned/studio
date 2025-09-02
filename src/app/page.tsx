@@ -16,7 +16,7 @@ export default function LandingPage() {
           BlockAuth
         </h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">
-          The next generation of secure, decentralized authentication and cloud storage for your business data files. Your digital identity and data, protected by the blockchain.
+          A demo of a Blockchain-based authentication method where the login data hash is recorded on a smart contract as opposed to the login data itself being stored in a database.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Button asChild size="lg" className="group">
@@ -25,10 +25,9 @@ export default function LandingPage() {
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="group">
+          <Button asChild variant="outline" size="lg">
             <Link href="/dashboard">
               Access My Wallet
-              <ArrowRight className="ml-2 h-5 w-5 text-primary transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
         </div>
